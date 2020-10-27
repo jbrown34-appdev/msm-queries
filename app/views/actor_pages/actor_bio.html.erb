@@ -1,0 +1,91 @@
+<h1> Actor #<%= @actor.id %> details </h1>
+
+<dl>
+
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @actor.name %>
+  </dd>
+
+
+  <dt>
+    Dob
+  </dt>
+  <dd>
+    <%= @actor.dob %>
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%= @actor.bio %>
+  </dd>
+
+  <dt>
+      Image
+  </dt>
+  <dd>
+   <img src="https://www.sciencealert.com/images/articles/processed/CountvonCount_Web_1024.jpg">
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+     <%= time_ago_in_words(@actor.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+     <%= time_ago_in_words(@actor.updated_at) %> ago
+  </dd>
+</dl>
+
+<h1> Filmography </h1>
+
+  <% @credits%> 
+  <table border="1">
+     <tr>
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+      Character name
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+    <% @credits.each do |film| %>
+      <tr>
+          <td><% c = Movie.all.where({ :id => film.movie_id}).at(0)%>
+            <%= c.title %>
+          </td>
+          <td>
+            <%= c.year %>
+          </td>
+          <td>
+            <% d = Director.all.where({ :id => c.director_id}).at(0)%>
+            <%= d.name %>
+          </td>
+          <td><%= film.name %></td>
+          <td> <a href="/movies/<%=film.movie_id%>"> Show details </a></td>
+          
+        </tr>
+    <% end %>
+  </table >
