@@ -1,0 +1,60 @@
+<h1> Movie #<%= @movie_id %> details </h1>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @this_movie.title %>
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @this_movie.year %>
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @this_movie.duration %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @this_movie.description %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <<img src ="http://robohash.org/<%=@this_movie.duration%>">>
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+  <dd>
+   <% d = Director.where({ :id => @this_movie.director_id}).at(0) %>
+   <%= d.name %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@this_movie.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@this_movie.updated_at) %> ago
+  </dd>
+</dl>

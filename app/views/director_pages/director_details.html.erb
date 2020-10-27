@@ -45,3 +45,20 @@
      <%= time_ago_in_words(@this_director.updated_at) %> ago
   </dd>
 </dl>
+
+<h1> Filmography </h1>
+
+  <% @filmography%> 
+  <table border="1">
+    <% @filmography.each do |film| %>
+      <tr>
+          <td><% film.id %></td>
+          <td><img src ="http://robohash.org/<%=film.title%>"></td>
+          <td><%= film.title %></td>
+          <td><%= film.year %></td>
+          <td><%= @this_director.name %></td>
+          <td> <a href="/movies/<%=film.id%>"> Show details </a></td>
+          
+        </tr>
+    <% end %>
+  </table >
