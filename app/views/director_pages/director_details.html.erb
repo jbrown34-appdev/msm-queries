@@ -1,0 +1,47 @@
+<h1> Director <%= @this_director.id %> details </h1>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @this_director.name %>
+  </dd>
+
+  <dt>
+    Dob
+  </dt>
+  <dd>
+     <%= @this_director.dob %>
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+     <%= @this_director.bio %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    < <%= @this_director.image %>>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+     <%= time_ago_in_words(@this_director.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+     <%= time_ago_in_words(@this_director.updated_at) %> ago
+  </dd>
+</dl>
